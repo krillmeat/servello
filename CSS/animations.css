@@ -1,11 +1,11 @@
 @keyframes blobbleOne{
     0%{ transform: scale(1) rotate(10deg) skewX(0deg) }
-   50%{ transform: scale(1.125) rotate(8deg) skewX(4deg) }
+   50%{ transform: scale(1.125) rotate(8deg) skewX(4deg) translateY(4px) }
   100%{ transform: scale(1) rotate(10deg) skewX(0deg) }
 }
 
 @keyframes blobbleTwo{
   0%{ transform: scale(1) rotate(-10deg) skewX(0deg) }
- 50%{ transform: scale(1.125) rotate(-9deg) skewX(2deg) }
+ 50%{ transform: scale(1.125) rotate(-7deg) skewX(2deg) translateY(-7px) }
 100%{ transform: scale(1) rotate(-10deg) skewX(0deg) }
 }
