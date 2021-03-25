@@ -10,6 +10,7 @@
 
 body{
   background: var(--champagne);
+  cursor: url('../MEDIA/ICONS/cursor-cirlce.png') 12 12, auto;
   
   font-family: 'Montserrat', sans-serif;
   color: var(--olive);
@@ -34,6 +35,8 @@ a{ text-decoration: none }
   padding: 0px;
   opacity: 0;
 }
+
+a,button:hover{ cursor: url('../MEDIA/ICONS/cursor-cirlce-hover.png') 12 12, auto }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -104,6 +107,15 @@ nav.top .mobile .logo img{
 
 nav.top .mobile .logo .name{
   display: none;
+}
+
+nav.top .mobile .logo-name{
+  display: flex;
+  padding: 8px;
+  font-family: 'Matao', serif;
+  font-size: 2em;
+
+  transform: translateY(1px);
 }
 
 /*::::::::::::::::::  LINK LIST  ::::::::::::::::::*/
@@ -453,7 +465,9 @@ section.featured-products .carousel .carousel-dots li:nth-of-type(2){ background
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-section.about{}
+section.about{
+  border-bottom: none
+}
 
 section.about > img{
   width: 100%;
@@ -465,11 +479,12 @@ section.about .content-block{
   width: 100%;
   margin: -144px auto 0 auto;
   z-index: 99;
+  border: 1px solid var(--olive);
 }
 
 section.about .content-block h2,
 section.about .content-block p{
-  background: var(--pine);
+  background: var(--champagne);
   padding: 16px;
 
   color: var(--olive);
@@ -480,16 +495,15 @@ section.about .content-block h2{
 }
 
 section.about .content-block p{
-  font-size: .875em;
-  line-height: 1.4;
-  margin-top: 1px;
+  font-size: 1em;
+  line-height: 1.5;
+  border-top: 1px solid var(--olive);
 }
 
 section.about .content-block a.arrowed{
   display: flex;
     justify-content: space-between;
     align-items: center;
-  margin-top: 1px;
   background: var(--olive);
   padding: 8px 16px;
 
@@ -508,5 +522,78 @@ section.about .content-block a.arrowed img{
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 footer{
-  min-height: 200px;
+  display: flex;
+    align-items: flex-end;
+  padding: 64px 8px 8px 8px;
+}
+
+footer .left,
+footer .right{
+  width: 50%;
+}
+
+footer .right{
+  text-align: right;
+}
+
+footer .logo{
+  display: flex;
+    align-items: center;
+}
+
+footer .logo img{
+  height: 32px;
+  margin-right: 8px;
+}
+
+footer .logo p{
+  font-family: 'Matao', serif;
+  font-size: 1.75em;
+}
+
+footer .contact{
+  margin-top: 32px;
+}
+
+footer .contact h2{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+footer .contact ul{
+  margin-top: 8px;
+  font-size: .875em;
+}
+
+footer .contact ul li{
+  margin-bottom: 8px;
+}
+
+footer .contact ul li:last-of-type{
+  margin-bottom: 0;
+}
+
+footer ul.footer-link-list{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+footer ul.footer-link-list li{
+  width: 100%;
+  margin: 8px 0 0 8px;
+  font-size: .875em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+footer ul.footer-link-list li a{
+  color: var(--olive);
+}
+
+footer .copy{
+  margin-top: 8px;
+  font-size: .875em;
 }
