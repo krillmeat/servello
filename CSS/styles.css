@@ -3,6 +3,41 @@
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  GENERAL                                                                ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+body{
+  background: var(--champagne);
+  
+  font-family: 'Montserrat', sans-serif;
+  color: var(--olive);
+}
+
+button{ font-size: 1rem }
+
+body *{
+  font-variant-ligatures: none;
+}
+
+h1,h2{
+  font-family: 'Matao', serif;
+}
+
+a{ text-decoration: none }
+
+.screen-reader-only{
+  position: fixed;
+  top: -100px; left: -100px;
+  width: 0px; height: 0px;
+  padding: 0px;
+  opacity: 0;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
 ::::::::::::::::::::  NAVIGATION                                                             ::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -12,27 +47,12 @@
 
 nav{
   position: fixed;
+  z-index: 999;
 }
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::::::::  MOBILE                                                                 ::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-nav .mobile{
-  display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::::::::  DESKTOP                                                                ::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-nav .desktop{
-  display: none; /* TOGGLED BY MEDIA QUERY */
-    justify-content: space-between;
-    align-items: center;
-}
+/* FOR QUERIES */
+nav .mobile{ display: flex }
+nav .desktop{ display: none }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
@@ -45,6 +65,16 @@ nav.top{
   width: 100%;
 }
 
+nav.top .logo{
+  display: flex;
+    align-items: center;
+  color: var(--olive);
+}
+
+nav.top .name{
+  font-family: 'Matao', serif;
+}
+
 @media all and (min-width: 700px){
   nav.top .mobile{ display: none }
   nav.top .desktop{ display: flex }
@@ -55,19 +85,74 @@ nav.top{
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 nav.top .mobile{
+  /* FLEX */
+    justify-content: space-between;
+    align-items: stretch;
   width: 100%;
+  border-bottom: 1px solid var(--olive);
+  background: var(--champagne);
+}
+
+
+/*::::::::::::::::::  LOGO  ::::::::::::::::::*/
+
+nav.top .mobile .logo img{
+  height: 48px;
+  padding: 8px;
+  border-right: 1px solid var(--olive);
+}
+
+nav.top .mobile .logo .name{
+  display: none;
+}
+
+/*::::::::::::::::::  LINK LIST  ::::::::::::::::::*/
+
+nav.top .mobile ul.link-list{
+  display: none;
+  /* display: flex; */
+  font-size: .8em;
+  text-transform: uppercase;
+}
+
+nav.top .mobile ul.link-list li a{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  height: 100%;
+  padding: 4px 8px 0 8px;
+  color: var(--olive);
+}
+
+nav.top .mobile ul.link-list li a:hover{ text-decoration: underline }
+nav.top .mobile ul.link-list li a:focus{ outline: none; font-weight: 700 }
+
+/*::::::::::::::::::  NAV BUTTONS  ::::::::::::::::::*/
+
+nav.top .buttons{
+  display: flex;
+}
+
+nav.top .buttons button{
+  background: none;
+  border: none;
+    border-left: 1px solid var(--olive);
+}
+
+nav.top button.cart img{
+  height: 44px;
+  padding: 8px;
 }
 
 nav.top button.mobile-menu{
-  border: none;
-  background: none;
-  padding: 8px;
+  padding: 8px 12px;
 }
 
 nav.top button.mobile-menu .rect{
   width: 24px;
   height: 4px;
-  background: pink;
+  background: var(--olive);
   margin-bottom: 4px;
 }
 
@@ -79,7 +164,11 @@ nav.top button.mobile-menu .rect:last-of-type{
 ::::::::::::::::::::  DESKTOP                                                                ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-nav.top .desktop{}
+nav.top .desktop{
+  /* FLEX */
+    justify-content: space-between;
+    align-items: center;
+}
 
 nav.top .desktop ul{
   display: flex;
@@ -95,12 +184,195 @@ nav.top .desktop ul{
 
 section{
   width: 100%;
+  min-height: 100px;
+  border-bottom: 1px solid var(--olive);
 }
 
-section .content-wrapper{
-  width: 100%;
+section .content-wrap{
+  width: calc(100% - 16px);
     max-width: 1000px;
   margin: 0 auto;
+  padding: 16px 0;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  LINKS & BUTTONS                                                        ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+a.arrowed,
+button.arrowed,
+button.to-cart{
+  background: none;
+  border: 1px solid var(--olive);
+  padding: 8px;
+
+  font-family: 'Matao', serif;
+  color: var(--olive);
+}
+
+button.to-cart{
+  background: var(--olive);
+  color: var(--champagne);
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  BORDERED BLOCKS                                                        ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.bordered-block{
+  position: relative;
+  border: 1px solid var(--olive);
+}
+
+.bordered-block .row{
+  display: flex;
+    flex-wrap: wrap;
+  border-bottom: 1px solid var(--olive);
+}
+
+.bordered-block .row:last-of-type{ border-bottom: none }
+
+.bordered-block .row > div,
+.bordered-block .row > h2,
+.bordered-block .row > p{
+  padding: 8px;
+  border-right: 1px solid var(--olive);
+}
+
+.bordered-block .row > *:last-of-type{ border-right: none }
+
+/*::::::::::::::::::  RATING  ::::::::::::::::::*/
+
+.bordered-block .row .rating{
+  display: flex;
+  border-right: 1px solid var(--olive);
+  padding: 16px 8px;
+}
+
+.bordered-block .row .rating img{
+  height: 24px;
+  margin-right: 4px;
+}
+
+.bordered-block .row .rating img:last-of-type{ margin-right: 0 }
+
+/*::::::::::::::::::  PRICE  ::::::::::::::::::*/
+
+.bordered-block .row .price{
+  display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+  font-family: 'Matao', serif;
+  font-size: 2.5em;
+  padding-right: 12px;
+}
+
+.bordered-block .row .price .sign{ font-size: .66em }
+.bordered-block .row .price .number{ letter-spacing: 2px }
+
+/*::::::::::::::::::  PIECES & MEASURE  ::::::::::::::::::*/
+
+.bordered-block .row .pieces{
+  display: flex;
+  padding: 0px;
+  font-family: 'Matao', serif;
+  font-size: 2.5em;
+}
+
+.bordered-block .row .pieces > span{ display: block }
+
+.bordered-block .row .pieces .number{
+  padding: 8px 16px;
+  border-right: 1px solid var(--olive);
+}
+
+.bordered-block .row .pieces .unit{
+  font-size: .5em;
+  text-transform: uppercase;
+  text-orientation: upright;
+  writing-mode: vertical-rl;
+  text-align: center;
+  letter-spacing: -6px;
+
+  transform: translateY(-2px);
+}
+
+/*::::::::::::::::::  DESCRIPTION  ::::::::::::::::::*/
+
+.bordered-block .row .description{
+  font-size: .875em;
+  line-height: 1.5;
+}
+
+.bordered-block .row > a,
+.bordered-block .row button{
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+  width: 100%;
+  border: none;
+    border-bottom: 1px solid var(--olive);
+  font-size: 1rem;
+}
+
+.bordered-block .row button{
+  font-size: 1.75rem;
+}
+
+.bordered-block .row button:hover{ cursor: pointer }
+
+.bordered-block .row button:last-child{ border-bottom: none }
+
+.bordered-block .row .arrowed img{
+  height: 24px;
+}
+
+/*::::::::::::::::::  OLIVE BLOBS  ::::::::::::::::::*/
+
+.bordered-block .olive-blobs{
+  position: absolute;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::  FULL                                                                   ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.bordered-block.full .row > h2{
+  font-size: 2em;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::  MINI                                                                   ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.bordered-block.mini .row img.product-img{
+  width: 100%;
+}
+
+.bordered-block.mini .row > h3{
+  padding: 8px;
+
+  font-family: 'Matao', serif;
+  font-size: 1.75em;
+}
+
+.bordered-block.mini .row .rating img{
+  height: 16px;
+}
+
+.bordered-block.mini .row .price{
+  font-size: 2em;
+}
+
+.bordered-block.mini .row a.arrowed{ border-bottom: none }
+
+.bordered-block.mini .row button.to-cart{
+  font-size: 1.5em;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -109,4 +381,132 @@ section .content-wrapper{
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-section.hero{}
+section.hero{
+  padding-top: 50px; /* For the Nav */
+}
+
+section.hero .bordered-block{
+  width: 100%;
+  margin: 0 auto;
+}
+
+section.hero .bordered-block .row > h2{
+  font-size: 2.75em;
+}
+
+section.hero .img-wrap{
+  width: 100%;
+}
+
+section.hero .img-wrap img{
+  width: 100%;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  FEATURED PRODUCTS                                                      ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+section.featured-products{
+}
+
+section.featured-products .content-wrap{
+  width: 100%;
+  max-width: 4000px;
+  padding: 16px 0;
+}
+
+section.featured-products .carousel{
+  overflow: hidden;
+}
+
+section.featured-products .carousel .slide-wrap{
+  display: flex;
+    justify-content: space-between;
+  width: 200vw;
+  transform: translateX(-50vw);
+}
+
+section.featured-products .carousel .carousel-slide{
+  width: calc(33.333333% - 16px);
+}
+
+section.featured-products .carousel .carousel-dots{
+  display: flex;
+    justify-content: center;
+  margin-top: 16px;
+}
+
+section.featured-products .carousel .carousel-dots li{
+  width: 12px; height: 12px;
+  border: 1px solid var(--olive);
+    border-radius: 50%;
+  margin: 0 4px;
+}
+
+section.featured-products .carousel .carousel-dots li:nth-of-type(2){ background: var(--olive) }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  ABOUT                                                                  ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+section.about{}
+
+section.about > img{
+  width: 100%;
+  border-bottom: 1px solid var(--olive);
+}
+
+section.about .content-block{
+  position: relative;
+  width: 100%;
+  margin: -144px auto 0 auto;
+  z-index: 99;
+}
+
+section.about .content-block h2,
+section.about .content-block p{
+  background: var(--pine);
+  padding: 16px;
+
+  color: var(--olive);
+}
+
+section.about .content-block h2{
+  font-size: 2em;
+}
+
+section.about .content-block p{
+  font-size: .875em;
+  line-height: 1.4;
+  margin-top: 1px;
+}
+
+section.about .content-block a.arrowed{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+  margin-top: 1px;
+  background: var(--olive);
+  padding: 8px 16px;
+
+  font-size: 1.25em;
+  color: var(--champagne);
+}
+
+section.about .content-block a.arrowed img{
+  height: 24px;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  FOOTER                                                                 ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+footer{
+  min-height: 200px;
+}
