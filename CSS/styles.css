@@ -78,11 +78,6 @@ nav.top .name{
   font-family: 'Matao', serif;
 }
 
-@media all and (min-width: 700px){
-  nav.top .mobile{ display: none }
-  nav.top .desktop{ display: flex }
-}
-
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::  MOBILE                                                                 ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -173,20 +168,6 @@ nav.top button.mobile-menu .rect:last-of-type{
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::::::::  DESKTOP                                                                ::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-nav.top .desktop{
-  /* FLEX */
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav.top .desktop ul{
-  display: flex;
-}
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 ::::::::::::::::::::  SECTIONS                                                               ::::::::::::::::::::
@@ -237,16 +218,21 @@ button.to-cart{
 
 .bordered-block{
   position: relative;
-  border: 1px solid var(--olive);
+  /* border: 1px solid var(--olive); */
 }
 
 .bordered-block .row{
+  position: relative;
   display: flex;
     flex-wrap: wrap;
-  border-bottom: 1px solid var(--olive);
+  border: 1px solid var(--olive);
+    border-top: none;
+  z-index: 10; /* To Prevent Blobs on Top */
 }
 
-.bordered-block .row:last-of-type{ border-bottom: none }
+.bordered-block .row:first-of-type{
+  border-top: 1px solid var(--olive);
+}
 
 .bordered-block .row > div,
 .bordered-block .row > h2,
@@ -255,13 +241,12 @@ button.to-cart{
   border-right: 1px solid var(--olive);
 }
 
-.bordered-block .row > *:last-of-type{ border-right: none }
+.bordered-block .row > *:last-child{ border-right: none }
 
 /*::::::::::::::::::  RATING  ::::::::::::::::::*/
 
 .bordered-block .row .rating{
   display: flex;
-  border-right: 1px solid var(--olive);
   padding: 16px 8px;
 }
 
@@ -346,13 +331,18 @@ button.to-cart{
 
 /*::::::::::::::::::  OLIVE BLOBS  ::::::::::::::::::*/
 
-.bordered-block .olive-blobs{
+.bordered-block svg.blob{
   position: absolute;
+  z-index: 0;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::  FULL                                                                   ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.bordered-block.full{
+  max-width: 550px;
+}
 
 .bordered-block.full .row > h2{
   font-size: 2em;
@@ -397,6 +387,10 @@ section.hero{
   padding-top: 50px; /* For the Nav */
 }
 
+section.hero .content-wrap{
+  max-width: 1200px;
+}
+
 section.hero .bordered-block{
   width: 100%;
   margin: 0 auto;
@@ -407,11 +401,44 @@ section.hero .bordered-block .row > h2{
 }
 
 section.hero .img-wrap{
+  position: relative;
   width: 100%;
+    max-width: 625px;
+  margin: 0 auto;
+  z-index: 10; /* For blobs */
 }
 
 section.hero .img-wrap img{
   width: 100%;
+}
+
+section.hero .bordered-block svg.blob{}
+
+section.hero .bordered-block svg.blob:first-of-type{
+  fill: var(--pine);
+  top: -110px; right: -105px;
+  width: 300px;
+  transform: rotate(10deg);
+}
+
+section.hero .bordered-block .blob:last-of-type{
+  fill: var(--pasta);
+  top: 10px; right: -111px;
+  width: 161px;
+  transform: rotate(-10deg);
+}
+
+@media (min-width: 625px){
+  section.hero .content-wrap{ padding-bottom: 32px }
+}
+
+@media (min-width: 800px){
+  section.hero .content-wrap{ padding: 32px }
+  section.hero .bordered-block{ margin-top: 0px }
+  section.hero .carousel-slide{
+    display: flex;
+      align-items: center;
+  }
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -513,6 +540,12 @@ section.about .content-block a.arrowed{
 
 section.about .content-block a.arrowed img{
   height: 24px;
+}
+
+@media (min-width: 500px){
+  section.about .content-block{
+    width: 91.3%;
+  }
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
