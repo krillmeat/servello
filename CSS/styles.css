@@ -353,6 +353,10 @@ button.to-cart{
 ::::::::::::::::::::  MINI                                                                   ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+.bordered-block.mini{
+  max-width: 250px;
+}
+
 .bordered-block.mini .row img.product-img{
   width: 100%;
 }
@@ -385,16 +389,34 @@ button.to-cart{
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 section.hero{
+  position: relative;
   padding-top: 50px; /* For the Nav */
+}
+
+section.hero .big-hero-blobs{
+  position: absolute;
+  left: -330px;
+  width: 36vw;
+  bottom: -350px;
+  transform: rotate(-45deg);
+}
+
+section.hero .big-hero-blobs svg{
+  fill: var(--pine);
+  width: 100%;
 }
 
 section.hero .content-wrap{
   max-width: 1200px;
 }
 
+section.hero .carousel-slide{
+  position: relative;
+}
+
 section.hero .some-blobs{
   position: absolute;
-  top: 8vh; left: 0vw;
+  top: 0vh; left: 0vw;
   width: 40vw; height: 48vw;
 }
 
@@ -491,12 +513,11 @@ section.hero .carousel .carousel-dots li:first-of-type{ background: var(--olive)
     padding: 40px 32px 48px 32px;
   }
   section.hero .bordered-block.full{
-    margin-top: 200px;
+    margin-top: 60px;
   }
 }
 
-@media (min-width: 1350px){ section.hero .some-blobs{ top: 4vh; left: 4vw } }
-@media (min-width: 1600px){ section.hero .some-blobs{ top: 4vh; left: 8vw } }
+@media (min-width: 1350px){ section.hero .some-blobs{ top: -10px; left: -20px; max-width: 350px; max-height: 458px } }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
@@ -519,13 +540,15 @@ section.featured-products .carousel{
 
 section.featured-products .carousel .slide-wrap{
   display: flex;
-    justify-content: space-between;
-  width: 200vw;
-  transform: translateX(-50vw);
+    justify-content: center;
+  width: 350vw;
+  transform: translateX(-125vw);
 }
 
 section.featured-products .carousel .carousel-slide{
-  width: calc(33.333333% - 16px);
+  width: 50vw;
+    max-width: 250px;
+  margin: 0 8px;
 }
 
 section.featured-products .carousel .carousel-dots{
@@ -553,7 +576,12 @@ section.about{
   border-bottom: none
 }
 
-section.about > img{
+section.about .img-wrap{
+  position: relative;
+  width: 100%;
+}
+
+section.about .img-wrap img{
   width: 100%;
   border-bottom: 1px solid var(--olive);
 }
