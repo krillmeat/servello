@@ -361,11 +361,15 @@ button.to-cart{
   width: 100%;
 }
 
+.bordered-block.mini .row img.product-img.one-liner{
+  padding: 13px 0;
+}
+
 .bordered-block.mini .row > h3{
   padding: 8px;
 
   font-family: 'Matao', serif;
-  font-size: 1.75em;
+  font-size: 1.65em;
 }
 
 .bordered-block.mini .row .rating img{
@@ -579,6 +583,8 @@ section.about{
 section.about .img-wrap{
   position: relative;
   width: 100%;
+    max-width: 750px;
+  margin: 0 auto;
 }
 
 section.about .img-wrap img{
@@ -632,6 +638,48 @@ section.about .content-block a.arrowed:hover{ cursor: url('../MEDIA/ICONS/cursor
 @media (min-width: 500px){
   section.about .content-block{
     width: 91.3%;
+  }
+}
+
+@media (min-width: 750px){
+  section.about{
+    padding-top: 64px;
+  }
+  section.about .img-wrap{
+    height: 480px;
+    transform: translateX(-12vw);
+    overflow: hidden;
+  }
+
+  section.about .img-wrap img{
+    position: absolute;
+    bottom: 0;
+  }
+
+  section.about .content-block{
+    max-width: 575px;
+    margin: -196px auto 0 auto;
+    transform: translateX(15%);
+  }
+
+  section.about .content-block h2{
+    font-size: 2.5em;
+    padding: 24px;
+  }
+
+  section.about .content-block p{
+    font-size: 1.125em;
+    padding: 24px;
+  }
+
+  section.about .content-block a.arrowed{
+    padding: 16px 24px;
+  }
+}
+
+@media (min-width: 1000px){
+  section.about{
+    padding-top: 128px;
   }
 }
 
