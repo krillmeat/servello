@@ -168,6 +168,55 @@ nav.top button.mobile-menu .rect:last-of-type{
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  HIDDEN SIDE                                                            ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+nav.hidden-side[data-state='inactive']{ right: -240px }
+nav.hidden-side[data-state='active']{ right: 0 }
+
+nav.hidden-side{
+  position: fixed;
+    top: 51px;
+    width: 240px;
+    height: calc(100vh - 51px);
+    border-left: 1px solid var(--olive);
+    background: var(--champagne);
+
+    transition: right .1s linear;
+}
+
+nav.hidden-side li a{
+  display: block;
+  padding: 8px;
+  border-bottom: 1px solid var(--olive);
+  color: var(--olive);
+}
+
+nav.hidden-side li a:hover{
+  background: var(--olive);
+  color: var(--champagne);
+}
+
+nav.hidden-side > ul > li > a{
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;;
+  padding: 12px 8px;
+}
+
+nav.hidden-side > ul > li > ul > li > a {
+  font-size: .85em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+nav.hidden-side > ul > li > ul > li > ul > li > a {
+  font-size: .85em;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 ::::::::::::::::::::  SECTIONS                                                               ::::::::::::::::::::
@@ -711,7 +760,10 @@ section.storefront .product-grid .product-row .bordered-block{
 footer{
   display: flex;
     align-items: flex-end;
-  padding: 64px 8px 8px 8px;
+  margin-top: 48px;
+  padding: 48px 8px 8px 8px;
+  background: var(--olive);
+  color: var(--champagne);
 }
 
 footer .left,
@@ -729,7 +781,7 @@ footer .logo{
 }
 
 footer .logo img{
-  height: 32px;
+  height: 48px;
   margin-right: 8px;
 }
 

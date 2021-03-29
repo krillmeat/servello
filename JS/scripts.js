@@ -8,6 +8,7 @@ function init(){
     console.log("%cInitializing...","color:#999");
 
     setupDebug();
+    document.querySelector("button.mobile-menu").addEventListener("click", toggleMenu);
 }
 
 /**
@@ -18,4 +19,9 @@ function init(){
  */
  function setupDebug(){
   debug = new DEBUGTOOL(false,document.querySelector("section .content-wrap"),[12,12,12]);
+}
+
+function toggleMenu(e){
+  let nav = document.querySelector("nav.hidden-side");
+  nav.dataset.state = nav.dataset.state === "inactive" ? "active" : "inactive";
 }
