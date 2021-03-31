@@ -38,6 +38,8 @@ a{ text-decoration: none }
 
 a,button:hover{ cursor: url('../MEDIA/ICONS/cursor-cirlce-hover.png') 12 12, auto }
 
+svg.blob{ transition: transform .5s linear;}
+
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
@@ -739,17 +741,93 @@ section.about .content-block a.arrowed:hover{ cursor: url('../MEDIA/ICONS/cursor
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+nav.filter{
+}
+
+nav.filter .display{
+  position: fixed;
+  top: 51px;
+  display: flex;
+    justify-content: flex-start;
+  width: 100%;
+  border-bottom: 1px solid var(--olive);
+  background: var(--champagne);
+}
+
+nav.filter .display button.show-filter{
+  position: relative;
+  padding: 16px 48px 14px 16px;
+  border: none;
+    border-right: 1px solid var(--olive);
+  background: none;
+
+  text-transform: uppercase;
+  color: var(--olive);
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+nav.filter .display button.show-filter::after{
+  content: '';
+  position: absolute;
+  top: calc(50% - 5px); right: 16px;
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--olive);
+  border-bottom: 2px solid var(--olive);
+  transform: rotate(45deg) translate(-3px,-1px);
+
+  transition: transform .1s linear;
+}
+
+nav.filter[data-state='active'] .display button.show-filter::after{
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+
+nav.filter .filter-options-wrap{
+  position: fixed;
+  top: 100px;
+  width: 100%; height: 0px;
+  padding: 0px;
+  background: var(--champagne);
+  overflow: hidden;
+  transition: height .1s linear;
+}
+
+nav.filter .filter-options{
+  width: 100%;
+  border-bottom: 1px solid var(--olive);
+}
+
+section.storefront .content-wrap{
+  max-width: 1400px;
+}
+
 section.storefront .product-grid{
   display: flex;
-  padding: 66px;
+    justify-content: center;
+    flex-wrap: wrap;
+  width: 100%;
+
+  padding: 0px;
+    padding-top: 96px;
 }
 
-section.storefront .product-grid .product-row{
-  display: flex;
+section.storefront .product-grid .bordered-block{
+  width: calc(50% - 16px);
+    max-width: 250px;
+  margin: 8px;
 }
 
-section.storefront .product-grid .product-row .bordered-block{
-  margin: 0 16px;
+section.storefront .product-grid .bordered-block .price{
+  font-size: 1.75em;
+}
+
+section.storefront .product-grid .bordered-block.mini .row .rating img{
+  height: 12px;
+}
+
+@media (min-width: 750px){
+  section.storefront .product-grid{ padding: 64px; padding-top: 120px }
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

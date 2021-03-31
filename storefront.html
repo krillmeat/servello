@@ -35,12 +35,24 @@
             </div>
           </div>
         </nav>
+        <nav class='filter mobile-only' data-state='inactive'>
+          <div class='display'>
+            <button class='show-filter'>Filter</button>
+          </div>
+          <div class='filter-options-wrap'>
+            <div class='filter-options'>
+              <p>Something for testing</p>
+              <p>Something for testing</p>
+              <p>Something for testing</p>
+              <p>Something for testing</p>
+            </div>
+          </div>
+        </nav>
       </div>  
       
       <!-- STOREFRONT -->
       <section id='storefront' class='storefront'><div class='content-wrap'>
         <div class='product-grid'>
-          <div class='product-row'>
             <div class='bordered-block mini'>
               <div class='row'><img class='product-img one-liner' src='MEDIA/PRODUCTS/CocoaClayMask-Product-Image-Two.png' /></div>
               <div class='row'> <h3>Rose Toner</h3> </div>
@@ -74,13 +86,45 @@
               </div>
             </div>
             <div class='bordered-block mini'>
-              <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/CocoaClayMask-Product-Image.png' /></div>
-              <div class='row'> <h3>Shea Butter Body Cream</h3> </div>
+              <div class='row'><img class='product-img one-liner' src='MEDIA/PRODUCTS/CocoaClayMask-Product-Image.png' /></div>
+              <div class='row'> <h3>Cocoa Clay Mask</h3> </div>
               <div class='row'>
                 <div class='rating'>
                   <img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-line.svg'/>
                 </div>
-                <p class='price'><span class='sign'>$</span><span class='number'>13</span></p>
+                <p class='price'><span class='sign'>$</span><span class='number'>16</span></p>
+              </div>
+              <div class='row'>
+                <a class='arrowed' href='#'>
+                  <span>See&nbsp;More</span>
+                  <img src='MEDIA/ICONS/arrow-right-icon-olive.svg'/>
+                </a>
+              </div>
+            </div>
+            <div class='bordered-block mini'>
+              <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/RosehipFaceScrub-Product-Image.png' /></div>
+              <div class='row'> <h3>Rosehip Face Scrub</h3> </div>
+              <div class='row'>
+                <div class='rating'>
+                  <img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-line.svg'/>
+                </div>
+                <p class='price'><span class='sign'>$</span><span class='number'>12</span></p>
+              </div>
+              <div class='row'>
+                <a class='arrowed' href='#'>
+                  <span>See&nbsp;More</span>
+                  <img src='MEDIA/ICONS/arrow-right-icon-olive.svg'/>
+                </a>
+              </div>
+            </div>
+            <div class='bordered-block mini'>
+              <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/EveningPrimroseFaceCream-Product-Image.png' /></div>
+              <div class='row'> <h3>Evening Primrose Face Cream</h3> </div>
+              <div class='row'>
+                <div class='rating'>
+                  <img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/>
+                </div>
+                <p class='price'><span class='sign'>$</span><span class='number'>21</span></p>
               </div>
               <div class='row'>
                 <a class='arrowed' href='#'>
@@ -90,7 +134,6 @@
               </div>
             </div>
           </div>
-        </div>
       </div></section>
       <footer>
         <div class='left'>
@@ -122,6 +165,11 @@
       </footer>
 
       <!-- SCRIPTS -->
+      <script type='text/javascript' src='JS/filter.js'></script>
+      <script type='text/javascript'>
+        var filter = new FILTER(document.querySelector("nav.filter"));
+      </script>
+
       <script type='text/javascript' src='https://rossdanielconover.com/UTILS/debug-tool/DEBUGTOOL.js'></script>
       <script type='text/javascript' src='JS/utils.js'></script>
       <script type='text/javascript' src='JS/scripts.js'></script>

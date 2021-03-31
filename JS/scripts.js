@@ -1,4 +1,4 @@
-var debug;
+var debug, heroBlobs;
 
 window.onload = function(){
     init();
@@ -9,6 +9,11 @@ function init(){
 
     setupDebug();
     document.querySelector("button.mobile-menu").addEventListener("click", toggleMenu);
+
+    // COOL MOUSE
+    heroBlobs = document.querySelectorAll(".hero .blob");
+    document.getElementById("hero")?.addEventListener("mousemove",handleCoolMouse,true);
+    document.getElementById("hero")?.addEventListener("mouseleave",clearBlobs);
 }
 
 /**
@@ -24,4 +29,39 @@ function init(){
 function toggleMenu(e){
   let nav = document.querySelector("nav.hidden-side");
   nav.dataset.state = nav.dataset.state === "inactive" ? "active" : "inactive";
+}
+
+
+
+// POTENTIAL COOL MOUSE EFFECT ON HERO
+function handleCoolMouse(e){
+  let t = document.getElementById("hero");
+
+  let hCenter = t.offsetWidth / 2;
+  let vCenter = t.offsetHeight / 2;
+  let deltaX = (e.clientX - t.offsetLeft) - hCenter;
+  let deltaY = (e.clientY - t.offsetTop) - vCenter;
+
+  if(deltaX > 200){
+     deltaX = 200;
+  } else if(deltaX < -200){
+    deltaX = -200;
+  }
+
+  if(deltaY > 200){
+    deltaY = 200
+  } else if(deltaY < -200){
+    deltaY = -200
+  }
+
+  for(let i = 0; i < heroBlobs.length; i++){
+    let translate = `translate(${(deltaX/4)*heroBlobs[i].dataset.offset}px,${(deltaY/4)*heroBlobs[i].dataset.offset}px)`;
+    heroBlobs[i].style.transform = translate;
+  }
+}
+
+function clearBlobs(e){
+  for(let i = 0; i < heroBlobs.length; i++){
+    heroBlobs[i].style.transform = "translate(0px,0px)";
+  }
 }
