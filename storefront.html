@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="CSS/variables.css">
         <link rel="stylesheet" href="CSS/styles.css">
     </head>
-    <body>
+    <body class='storefront-page'>
       <!-- NAVIGATION -->
       <div class='nav-wrapper'>
         <nav class='top'>
@@ -41,12 +41,18 @@
           </div>
           <div class='filter-options-wrap'>
             <div class='filter-options'>
+              <p class='desktop-only filter-label'>Filter</p>
               <form>
-                <div class='price'><label for='price-range'>Price</label><p class='cost'>0</p><input type='range' id='price-range' min='5' max='50' value='25'/></div>
+                <div class='price'><label for='price-range'>Price</label><p class='cost'>50</p><input type='range' id='price-range' min='5' max='50' value='50'/></div>
               </form>
               <p class='cat-label'>Categories</p>
               <ul class='filter-tags'>
-                <li><button>Aromatherapy</button></li><li><button>Face</button></li><li><button>Bath &amp; Body</button></li><li><button>Hands</button></li><li><button>Home</button></li><li><button>Lips</button></li>
+                <li><button data-label='aromatherapy' data-state='inactive'>Aromatherapy</button></li>
+                <li><button data-label='face' data-state='inactive'>Face</button></li>
+                <li><button data-label='bathBody' data-state='inactive'>Bath &amp; Body</button></li>
+                <li><button data-label='hands' data-state='inactive'>Hands</button></li>
+                <li><button data-label='home' data-state='inactive'>Home</button></li>
+                <li><button data-label='lips' data-state='inactive'>Lips</button></li>
               </ul>
             </div>
           </div>
@@ -56,7 +62,7 @@
       <!-- STOREFRONT -->
       <section id='storefront' class='storefront'><div class='content-wrap'>
         <div class='product-grid'>
-            <div class='bordered-block mini'>
+            <div class='bordered-block mini product' data-tags="face">
               <div class='row'><img class='product-img one-liner' src='MEDIA/PRODUCTS/CocoaClayMask-Product-Image-Two.png' /></div>
               <div class='row'> <h3>Rose Toner</h3> </div>
               <div class='row'>
@@ -72,8 +78,8 @@
                 </a>
               </div>
             </div>
-            <div class='bordered-block mini'>
-              <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/CocoaClayMask-Product-Image.png' /></div>
+            <div class='bordered-block mini product' data-tags="bathBody">
+              <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/ShaeButterBodyCream-Product-Image.png' /></div>
               <div class='row'> <h3>Shea Butter Body Cream</h3> </div>
               <div class='row'>
                 <div class='rating'>
@@ -88,7 +94,7 @@
                 </a>
               </div>
             </div>
-            <div class='bordered-block mini'>
+            <div class='bordered-block mini product' data-tags="face">
               <div class='row'><img class='product-img one-liner' src='MEDIA/PRODUCTS/CocoaClayMask-Product-Image.png' /></div>
               <div class='row'> <h3>Cocoa Clay Mask</h3> </div>
               <div class='row'>
@@ -104,7 +110,7 @@
                 </a>
               </div>
             </div>
-            <div class='bordered-block mini'>
+            <div class='bordered-block mini product' data-tags="face">
               <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/RosehipFaceScrub-Product-Image.png' /></div>
               <div class='row'> <h3>Rosehip Face Scrub</h3> </div>
               <div class='row'>
@@ -120,7 +126,7 @@
                 </a>
               </div>
             </div>
-            <div class='bordered-block mini'>
+            <div class='bordered-block mini product' data-tags="face">
               <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/EveningPrimroseFaceCream-Product-Image.png' /></div>
               <div class='row'> <h3>Evening Primrose Face Cream</h3> </div>
               <div class='row'>
@@ -136,11 +142,83 @@
                 </a>
               </div>
             </div>
+            <div class='bordered-block mini product' data-tags="aromatherapy">
+              <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/EssentialOilPumpkinSpice-Product-Image.png' /></div>
+              <div class='row'> <h3>Essential Oil&nbsp;&mdash; Pumpkin Spice</h3> </div>
+              <div class='row'>
+                <div class='rating'>
+                  <img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/>
+                </div>
+                <p class='price'><span class='sign'>$</span><span class='number'>14</span></p>
+              </div>
+              <div class='row'>
+                <a class='arrowed' href='#'>
+                  <span>See&nbsp;More</span>
+                  <img src='MEDIA/ICONS/arrow-right-icon-olive.svg'/>
+                </a>
+              </div>
+            </div>
+            <div class='bordered-block mini product' data-tags="aromatherapy">
+              <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/EssentialOilWinterForest-Product-Image.png' /></div>
+              <div class='row'> <h3>Essential Oil&nbsp;&mdash; Winter Forest</h3> </div>
+              <div class='row'>
+                <div class='rating'>
+                  <img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/>
+                </div>
+                <p class='price'><span class='sign'>$</span><span class='number'>15</span></p>
+              </div>
+              <div class='row'>
+                <a class='arrowed' href='#'>
+                  <span>See&nbsp;More</span>
+                  <img src='MEDIA/ICONS/arrow-right-icon-olive.svg'/>
+                </a>
+              </div>
+            </div>
+
+            <!-- Sandalwood Bath Soak -->
+            <div class='bordered-block mini product' data-tags="bathBody">
+              <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/EveningPrimroseFaceCream-Product-Image.png' /></div>
+              <div class='row'> <h3>Sandalwood Bath Soak</h3> </div>
+              <div class='row'>
+                <div class='rating'>
+                  <img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-line.svg'/>
+                </div>
+                <p class='price'><span class='sign'>$</span><span class='number'>12</span></p>
+              </div>
+              <div class='row'>
+                <a class='arrowed' href='#'>
+                  <span>See&nbsp;More</span>
+                  <img src='MEDIA/ICONS/arrow-right-icon-olive.svg'/>
+                </a>
+              </div>
+            </div>
+
+            <!-- Primrose Shae Butter Cream -->
+            <div class='bordered-block mini product' data-tags="bathBody">
+              <div class='row'><img class='product-img' src='MEDIA/PRODUCTS/PrimroseShaeButterCream-Product-Image.png' /></div>
+              <div class='row'> <h3>Primrose Shae Butter Cream</h3> </div>
+              <div class='row'>
+                <div class='rating'>
+                  <img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/><img src='MEDIA/ICONS/rating-star-fill.svg'/>
+                </div>
+                <p class='price'><span class='sign'>$</span><span class='number'>18</span></p>
+              </div>
+              <div class='row'>
+                <a class='arrowed' href='#'>
+                  <span>See&nbsp;More</span>
+                  <img src='MEDIA/ICONS/arrow-right-icon-olive.svg'/>
+                </a>
+              </div>
+            </div>
+
+            <!-- END OF PRODUCTS -->
+
           </div>
+          <div class='no-products' data-state='hide'>Sorry, but no products matched your search.</div>
       </div></section>
       <footer>
         <div class='left'>
-          <div class='logo'><img src='MEDIA/LOGOS/logo-olive.svg' /><p>Servello</p></div>
+          <div class='logo'><img src='MEDIA/LOGOS/logo-champagne.svg' /><p>Servello</p></div>
           <div class='contact'>
             <h2>Contact Us</h2>
             <ul>
