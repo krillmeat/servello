@@ -798,6 +798,81 @@ nav.filter .filter-options{
   border-bottom: 1px solid var(--olive);
 }
 
+nav.filter .filter-options form{
+  border-bottom: 1px solid var(--olive);
+}
+
+nav.filter .filter-options form .price{
+  display: flex;
+    align-items: center;
+}
+
+nav.filter .filter-options form label{
+  min-width: 86px;
+  padding: 8px 16px;
+  border-right: 1px solid var(--olive);
+  font-size: .9em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+nav.filter .filter-options form .cost{
+  padding: 8px;
+  font-size: .9em;
+  border-right: 1px solid var(--olive);
+}
+
+nav.filter .filter-options form input[type='range']{
+  -webkit-appearance: none;
+    appearance: none;
+  flex: 2;
+  width: calc(50% - 16px);
+  height: 1px;
+  padding: 0px;
+  margin: 0 8px;
+  background: var(--olive);
+}
+
+nav.filter .filter-options form input[type='range']::-webkit-slider-thumb{
+  appearance: none;
+  width: 12px; height: 12px;
+  background: var(--olive);
+  border-radius: 50%;
+}
+
+nav.filter .filter-options p.cat-label{
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--olive);
+  font-size: .9em;
+}
+
+nav.filter .filter-options ul.filter-tags{
+  display: flex;
+    flex-wrap: wrap;
+}
+
+nav.filter .filter-options ul.filter-tags li{
+  width: 33.333333%;
+  text-align: center;
+  border-right: 1px solid var(--olive);
+  border-bottom: 1px solid var(--olive);
+}
+
+nav.filter .filter-options ul.filter-tags li:nth-of-type(3n){ border-right: none }
+nav.filter .filter-options ul.filter-tags li:nth-of-type(n + 4){ border-bottom: none }
+
+nav.filter .filter-options ul.filter-tags button{
+  background: none;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  color: var(--olive);
+}
+
 section.storefront .content-wrap{
   max-width: 1400px;
 }
