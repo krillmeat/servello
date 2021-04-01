@@ -780,6 +780,8 @@ nav.filter .display button.show-filter::after{
   transition: transform .1s linear;
 }
 
+nav.filter .filter-label{ display: none }
+
 nav.filter[data-state='active'] .display button.show-filter::after{
   transform: rotate(-135deg) translate(-2px, -2px);
 }
