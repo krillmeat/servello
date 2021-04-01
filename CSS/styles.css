@@ -404,10 +404,6 @@ button.to-cart{
 ::::::::::::::::::::  MINI                                                                   ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-.bordered-block.mini{
-  width: 250px;
-}
-
 .bordered-block.mini .row img.product-img{
   width: 100%;
 }
@@ -424,17 +420,22 @@ button.to-cart{
 }
 
 .bordered-block.mini .row .rating img{
-  height: 16px;
+  height: 12px;
 }
 
 .bordered-block.mini .row .price{
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .bordered-block.mini .row a.arrowed{ border-bottom: none }
 
 .bordered-block.mini .row button.to-cart{
   font-size: 1.5em;
+}
+
+@media (min-width: 400px){
+  .bordered-block.mini .row .rating img{ height: 16px }
+  .bordered-block.mini .row .price{ font-size: 2em }
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -603,7 +604,7 @@ section.featured-products .carousel .slide-wrap{
 section.featured-products .carousel .carousel-slide{
   width: 50vw;
     max-width: 250px;
-  margin: 0 8px;
+  margin: 0 4px;
 }
 
 section.featured-products .carousel .carousel-dots{
