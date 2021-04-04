@@ -218,6 +218,138 @@ nav.hidden-side > ul > li > ul > li > ul > li > a {
   font-size: .85em;
 }
 
+nav.hidden-side ul.socials{
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--olive);
+}
+
+nav.hidden-side ul.socials li{
+  border: none;
+  border-right: 1px solid var(--olive);
+}
+
+nav.hidden-side ul.socials li:last-of-type{ border-right: 1px solid var(--champagne) }
+
+nav.hidden-side ul.socials li a{
+  padding: 16px;
+  border: none;
+}
+
+nav.hidden-side ul.socials li a:hover{ background: none }
+
+nav.hidden-side ul.socials img{
+  width: 100%;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  POPUP CART                                                             ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+nav.popup-cart{
+  display: none;
+  position: fixed;
+  top: 51px; right: 0px;
+  width: 350px;
+  background: var(--champagne);
+  border-left: 1px solid var(--olive);
+  border-bottom: 1px solid var(--olive);
+}
+
+nav.popup-cart[data-state='show']{display: block }
+
+nav.popup-cart h2{
+  padding: 16px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid var(--olive);
+}
+
+nav.popup-cart li.cart-product{
+  display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  width: 100%;
+  border-bottom: 1px solid var(--olive);
+}
+
+nav.popup-cart li.cart-product h3{
+  flex: 2;
+  font-size: 1em;
+  padding: 14px 16px 2px 16px;
+  border-right: 1px solid var(--olive);
+}
+
+nav.popup-cart li.cart-product .right{ 
+  display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav.popup-cart li.cart-product .right .count{
+  height: 100%;
+  border-right: 1px solid var(--olive);
+  padding: 12px 8px;
+}
+
+nav.popup-cart li.cart-product .right .count .symbol{
+  margin-right: 4px;
+}
+
+nav.popup-cart li.cart-product .right .cost{
+  display: flex;
+    align-items: center;
+  padding: 8px 16px;
+  font-family: 'Matao', serif;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  border-right: none;
+}
+
+nav.popup-cart li.cart-product .right .cost .symbol{
+  font-size: .75em;
+}
+
+nav.popup-cart .total{
+  display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+nav.popup-cart .total p:first-of-type{
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 16px;
+}
+
+nav.popup-cart .total .cost{
+  border-left: 1px solid var(--olive);
+  padding: 8px 16px;
+  font-family: 'Matao', serif;
+  font-size: 1.75em;
+  letter-spacing: 1px;
+}
+
+nav.popup-cart a{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+  background: var(--olive);
+  padding: 12px 16px;
+ 
+  font-family: 'Matao', serif;
+  font-size: 1.25em;
+  letter-spacing: 1px;
+  color: var(--champagne);
+}
+
+nav.popup-cart a img{ height: 24px }
+
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
@@ -428,6 +560,7 @@ button.to-cart{
 }
 
 .bordered-block.mini .row a.arrowed{ border-bottom: none }
+.bordered-block.mini .row a.arrowed:hover{ background: var(--olive); color: var(--champagne)}
 
 .bordered-block.mini .row button.to-cart{
   font-size: 1.5em;
@@ -932,6 +1065,7 @@ section.storefront .no-products{
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
+  padding-top: 25vh;
 }
 
 section.storefront .no-products[data-state='hide']{ display: none }
@@ -973,6 +1107,31 @@ section.storefront .no-products[data-state='hide']{ display: none }
 @media (min-width: 900px){
   section.storefront .product-grid .bordered-block.mini .row .rating img{ height: 16px }
   section.storefront .product-grid .bordered-block .price{ font-size: 2em }
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  PRODUCT PAGE                                                           ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+body.product-page .wrap{
+  position: relative;
+}
+
+body.product-page .bordered-block .ingredients{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: .9em;
+  line-height: 1.4;
+}
+
+@media (min-width: 800px){
+  body.product-page section.hero .wrap{
+    display: flex;
+      align-items: center;
+  }
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

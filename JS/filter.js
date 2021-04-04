@@ -10,6 +10,7 @@ class FILTER{
     this._showButton = this.elem.querySelector("button.show-filter");
 
     this._filters = [];
+    this.loadParamFilters();
 
     this.setupListeners();
   }
@@ -25,9 +26,24 @@ class FILTER{
   }
 
   loadParamFilters(){
+    let obj = this;
     let urlString = window.location.href;
-    // let paramArray = urlString.substring(urlString.indexOf("?") +1).split("&");
+    let paramArray;
 
+    if(urlString.indexOf("?") > -1){
+      paramArray = urlString.substring(urlString.indexOf("?") +1).split("&");
+      console.log("PARAMS = ",paramArray);
+
+      for(let param of paramArray){
+        obj.filters.push(param.split("=")[1]);
+        document.querySelector(`.filter-tags button[data-label=${param.split("=")[1]}]`).dataset.state = 'active';
+      }
+
+      console.log(obj.filters);
+
+      obj.unfilterAll();
+      obj.filter();
+    }
   }
 
   priceFilter(e){
