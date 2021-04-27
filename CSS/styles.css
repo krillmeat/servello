@@ -723,6 +723,12 @@ section.featured-products .content-wrap{
   padding: 16px 0;
 }
 
+section.featured-products h2{
+  font-size: 1.75em;
+  text-align: center;
+  padding:0  16px 16px 16px;
+}
+
 section.featured-products .carousel{
   overflow: hidden;
 }
@@ -754,6 +760,12 @@ section.featured-products .carousel .carousel-dots li{
 }
 
 section.featured-products .carousel .carousel-dots li:nth-of-type(2){ background: var(--olive) }
+
+body.product-page section.featured-products h2{
+  text-align: center;
+  margin: 16px auto 32px auto;
+  font-size: 2em;
+}
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
